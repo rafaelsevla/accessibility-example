@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import { Col, Row } from 'reactstrap';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import CardProduct from './card-product'
+
+import products from './products';
 import './App.css';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToastContainer />
+      <div className="product-list">
+        <Row>
+          {products.map(product => (
+            <Col md={6}>
+              <CardProduct
+                product={product}
+                addProductToCart={() => {}}
+              />
+            </Col>
+          ))}
+        </Row>
+      </div>
+    </>
   );
 }
 
